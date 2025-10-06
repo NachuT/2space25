@@ -544,9 +544,10 @@ if __name__ == '__main__':
     
     if model_loaded:
         print("Starting Flask app...")
-        app.run(debug=True, host='0.0.0.0', port=5001)
+        port = int(os.environ.get('PORT', 5001))
+        app.run(debug=False, host='0.0.0.0', port=port)
     else:
         print("Failed to load model. Please check the model file path.")
 
-# For Vercel deployment
+# For Railway deployment
 app = app
